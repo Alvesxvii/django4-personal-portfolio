@@ -1,0 +1,30 @@
+{% extends 'portfolio/base.html' %}
+
+    {% block content %}
+
+        <h3 id="blogtitle" class="font-weight-bold text-center">My personal blog</h3>
+
+        <h5 class="text-center mb-5">Hello and welcome to my personal blog! There are a total of <b>{{ total_blogs }}</b> written blog{{ blogs.count|pluralize }}</h5>
+
+        <br><br>
+
+        {% for blog in blogs %}
+
+        <div class="row justify-content-center my-3">
+
+            <div class="col-md-10">
+
+            <a href="{% url 'blog:detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
+
+            <h5 class="text-muted">{{ blog.date|date:'d M Y' }} às {{ blog.date|date:'H:i:s' }}h - {{ blog.date|date:'T' }}</h5>
+            <h4>{{ blog.description|truncatechars:250 }}</h4>
+
+            <br><br>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    {% endblock %}

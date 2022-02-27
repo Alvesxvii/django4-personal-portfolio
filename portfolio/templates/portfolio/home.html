@@ -1,0 +1,54 @@
+{% extends 'portfolio/base.html' %}
+
+    {% block content %}
+
+          {% load static %}
+
+                <div class="row justify-content-center my-3">
+                    <div class="col-5">
+
+                        <h1><center><b>My Portfolio</b></center></h1>
+                        <br>
+
+                        <center><img src="{% static 'portfolio/MySelf.jpg' %}" class="img-fluid" height=300 width=300></center>
+
+                        <center><h6>Welcome! This page talks a little about me and who I am. In case you don't know me yet, I'm <b>João Alves!</b></h6></center>
+
+
+                    </div>
+                </div>
+
+
+                <br><br>
+
+        <hr>
+            <div class="row">
+
+                {% for project in projects %}
+
+                <div class="col-lg-4 col-md-6">
+
+                    {% if project.url %}
+                    <a href="{{ project.url }}">
+                        <center><img src="{{ project.image.url }}" class="img-fluid mb-2" height=184 width=274></center>
+                    </a>
+                    {% else %}
+
+                    <center><img src="{{ project.image.url }}" class="img-fluid mb-2" height=184 width=274></center>
+
+                    {% endif %}
+
+                    <center><h3>{{ project.title }}</h3></center>
+                    <p align="left">{{ project.description }}</p>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% endblock %}
+
+
+
+

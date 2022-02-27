@@ -1,0 +1,15 @@
+{% extends 'portfolio/base.html' %}
+
+    {% block content %}
+
+        <center>
+        <p style="font-family: 'Comic Sans MS', 'Comic Sans', cursive;"><h5><b>{{ blog.title }}</b></h5></p>
+        </center>
+        <br>
+        <p>{{ blog.date|date:'d M Y' }} às {{ blog.date|date:'H:i:s' }}h - {{ blog.date|date:'T' }}</p>
+        <br>
+        <p>{{ blog.description }}</p>
+
+    {% endblock %}
+
+
